@@ -6,7 +6,7 @@ public class FollowPlayerX : MonoBehaviour
 {
     public GameObject plane;
     private Vector3 offset = Vector3.right * 20f;
-    //private Quaternion offsetRotation = Quaternion.AngleAxis(-90, Vector3.up);
+    private Quaternion offsetRotation = Quaternion.AngleAxis(-90, Vector3.up);
 
 
 
@@ -22,6 +22,6 @@ public class FollowPlayerX : MonoBehaviour
     void LateUpdate()
     {
         transform.position = plane.transform.position + offset;
-        //transform.rotation = offsetRotation;
+        transform.rotation = offsetRotation;
     }
 }
