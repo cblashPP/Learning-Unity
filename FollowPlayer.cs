@@ -6,7 +6,7 @@ public class FollowPlayer : MonoBehaviour
 {
     // assign relevant object that will be the player to the following variable
     // i.e. the tank in this case
-    private GameObject player;
+    public GameObject player;
 
     // Player camera offset
     private Vector3 offset = new Vector3(0, 5.7f, -8);
