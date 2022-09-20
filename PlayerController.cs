@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private const int WHEELCOUNT = 4;
+    public GameObject[]  wheel = new GameObject[WHEELCOUNT];
     private float speed = 15.0f;
     private float turnspeed = 45.0f;
     private float horizontalInput;
@@ -23,5 +25,10 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
         //Rotate the vehicle while it's moving to simulate turns    
         transform.Rotate(Vector3.up * Time.deltaTime * turnspeed * horizontalInput);
+        //Rotate the wheels when driving
+        for (int i = 0; i < WHEELCOUNT; i++)
+        { 
+            wheel[i].transform.Rotate(Vector3.right * Time.deltaTime * speed * forwardInput);
+        }
     }
 }
