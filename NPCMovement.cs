@@ -5,6 +5,7 @@ using UnityEngine;
 public class NPCMovement : MonoBehaviour
 {
     private float speed = 10;
+    private Quaternion orientation = Quaternion.AngleAxis(180f, Vector3.up);
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +15,11 @@ public class NPCMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //move the cars at a negative speed, thus moving them back toward the player
-        transform.Translate(Vector3.forward * -(speed) * Time.deltaTime);
+        //turn the cars toward the player
+        transform.rotation = orientation;
+        //then move the cars forward to the player
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+
+        
     }
 }
